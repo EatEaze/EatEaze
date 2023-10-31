@@ -2,7 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace EatEaze.Data
+namespace EatEaze.Data.Entities
 {
     public class Order
     {
@@ -19,7 +19,7 @@ namespace EatEaze.Data
 
         public DateTime? DeliveryDate { get; set; }
 
-       
+
         public virtual User User { get; set; }
         public virtual ICollection<PositionInOrder> PositionsInOrders { get; set; }
     }
