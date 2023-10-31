@@ -1,0 +1,17 @@
+version: "3"
+
+networks:
+    eat-eaze-dev:
+        driver: bridge
+
+services:
+    postgres:
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: eateazedatabase
+            POSTGRES_USER: eateaze-app
+            POSTGRES_PASSWORD: Ml37RemA7hEGjI
+        networks:
+            - eat-eaze-dev
