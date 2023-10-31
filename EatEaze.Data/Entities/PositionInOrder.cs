@@ -1,15 +1,15 @@
 ﻿#pragma warning disable CS8618
 
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace EatEaze.Data.Entities
 {
+    [PrimaryKey(nameof(OrderId), nameof(PositionId))]
     public class PositionInOrder
     {
-        [Key]
         public Guid OrderId { get; set; } = Guid.NewGuid();
 
-        [Required]
         public Guid PositionId { get; set; }
 
         [Required]

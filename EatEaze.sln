@@ -5,12 +5,14 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze.WebApplicationAPI", "EatEaze.WebApplicationAPI\EatEaze.WebApplicationAPI.csproj", "{E6DCAA5D-7572-4A8E-B5E6-FB3249A7E50D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.Data", "EatEaze.Data\EatEaze.Data.csproj", "{318F3604-2596-4BCA-A5F7-941F3A95F3F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze.Data", "EatEaze.Data\EatEaze.Data.csproj", "{318F3604-2596-4BCA-A5F7-941F3A95F3F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose", "docker-compose", "{62FCEB43-4FDD-477A-925E-9A7190626E6A}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.Tests", "EatEaze.Tests\EatEaze.Tests.csproj", "{CCF21419-3F3E-40BC-8395-93E883EC5736}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{318F3604-2596-4BCA-A5F7-941F3A95F3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{318F3604-2596-4BCA-A5F7-941F3A95F3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{318F3604-2596-4BCA-A5F7-941F3A95F3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF21419-3F3E-40BC-8395-93E883EC5736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF21419-3F3E-40BC-8395-93E883EC5736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF21419-3F3E-40BC-8395-93E883EC5736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF21419-3F3E-40BC-8395-93E883EC5736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

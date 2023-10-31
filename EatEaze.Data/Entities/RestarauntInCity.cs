@@ -1,15 +1,15 @@
 ﻿#pragma warning disable CS8618
 
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace EatEaze.Data.Entities
 {
+    [PrimaryKey(nameof(CityId), nameof(RestarauntId))]
     public class RestarauntInCity
     {
-        [Key]
         public Guid CityId { get; set; }
 
-        [Key]
         public Guid RestarauntId { get; set; }
 
         public virtual City City { get; set; }
