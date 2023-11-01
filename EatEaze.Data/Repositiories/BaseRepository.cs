@@ -5,7 +5,7 @@ namespace EatEaze.Data.Repositiories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private EatEazeDataContext _eatEazeDataContext;
+        protected EatEazeDataContext _eatEazeDataContext;
 
         public BaseRepository(EatEazeDataContext dataContext)
         {
