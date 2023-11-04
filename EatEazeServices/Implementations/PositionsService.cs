@@ -16,7 +16,7 @@ namespace EatEazeServices.Implementations
 
         public void AddPosition(Position position)
         {
-            _positionsRepository.AddItem(position);
+             _positionsRepository.AddItem(position);
         }
 
         public Position GetPositionById(Guid positionId)

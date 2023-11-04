@@ -1,5 +1,6 @@
 ﻿using EatEaze.Data.DataContext;
 using EatEaze.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EatEaze.Data.Repositiories
 {
@@ -17,7 +18,7 @@ namespace EatEaze.Data.Repositiories
 
         public IEnumerable<Position> GetPositionsByPositionName(string positionName)
         {
-            var positions = _eatEazeDataContext.Positions.Where(p => p.PositionName == positionName);
+            var positions = _eatEazeDataContext.Positions.Where(p => p.PositionName.Contains(positionName));
             return positions;
         }
 

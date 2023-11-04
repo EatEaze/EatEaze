@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze.Tests", "EatEaze.Tests\EatEaze.Tests.csproj", "{CCF21419-3F3E-40BC-8395-93E883EC5736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEazeServices", "EatEazeServices\EatEazeServices.csproj", "{5F8F0C1A-4657-49DF-9F48-AC16AAF1EA16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.Services", "EatEazeServices\EatEaze.Services.csproj", "{5F8F0C1A-4657-49DF-9F48-AC16AAF1EA16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze", "EatEaze\EatEaze.csproj", "{30B356F2-B82C-497C-B192-A44F8E093ED2}"
 EndProject
