@@ -2,17 +2,17 @@
 {
     public interface IBaseRepository<T>
     {
-        public void AddItem(T item);
+        public Task AddItem(T item);
 
-        public void AddItem(IEnumerable<T> items);
+        public Task AddItem(IEnumerable<T> items);
 
-        public void DeleteItem(T item);
+        public Task DeleteItem(T item);
 
-        public void DeleteItem(IEnumerable<T> items);
+        public Task DeleteItem(IEnumerable<T> items);
 
-        public IEnumerable<T> GetListOfItem();
+        public Task<IEnumerable<T>> GetListOfItem();
 
-        public void UpdateItem(T item);
+        public Task UpdateItem(T item);
 
     }
 }

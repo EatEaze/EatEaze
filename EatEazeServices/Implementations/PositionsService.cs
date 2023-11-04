@@ -14,61 +14,61 @@ namespace EatEazeServices.Implementations
             _positionsRepository = positionsRepository; 
         }
 
-        public void AddPosition(Position position)
+        public async Task AddPosition(Position position)
         {
-             _positionsRepository.AddItem(position);
+             await _positionsRepository.AddItem(position);
         }
 
-        public Position GetPositionById(Guid positionId)
+        public async Task<Position> GetPositionById(Guid positionId)
         {
-            var position = _positionsRepository.TryGetPositionById(positionId);
+            var position = await _positionsRepository.TryGetPositionById(positionId);
 
             if (position == null) throw new PositionNullException("Can't get position with this id");
             else return position;
         }
 
-        public IEnumerable<Position> GetPositions()
+        public async Task<IEnumerable<Position>> GetPositions()
         {
-            var positions = _positionsRepository.GetListOfItem();
+            var positions = await _positionsRepository.GetListOfItem();
             return positions;
         }
 
-        public IEnumerable<Position> GetPositions(string positionName)
+        public async Task<IEnumerable<Position>> GetPositions(string positionName)
         {
-            var positions = _positionsRepository.GetPositionsByPositionName(positionName);
+            var positions = await _positionsRepository.GetPositionsByPositionName(positionName);
             return positions;
         }
 
-        public IEnumerable<Position> GetPositions(Guid restaurantId, Guid categoryId)
+        public async Task<IEnumerable<Position>> GetPositions(Guid restaurantId, Guid categoryId)
         {
-            var positions = _positionsRepository.GetPositionsByCategoryIdAndRestaurantId(categoryId, restaurantId);
+            var positions = await _positionsRepository.GetPositionsByCategoryIdAndRestaurantId(categoryId, restaurantId);
             return positions;
         }
 
-        public IEnumerable<Position> GetPositionsByCategory(Guid categoryId)
+        public async Task<IEnumerable<Position>> GetPositionsByCategory(Guid categoryId)
         {
-            var positions = _positionsRepository.GetPositionsByCategoryId(categoryId);
+            var positions = await _positionsRepository.GetPositionsByCategoryId(categoryId);
             return positions;
         }
 
-        public IEnumerable<Position> GetPositionsByRestaurant(Guid restaurantId)
+        public async Task<IEnumerable<Position>> GetPositionsByRestaurant(Guid restaurantId)
         {
-            var positions = _positionsRepository.GetPositionsByRestaurantId(restaurantId);
+            var positions = await _positionsRepository.GetPositionsByRestaurantId(restaurantId);
             return positions;
         }
 
-        public void RemovePosition(Position position)
+        public async Task RemovePosition(Position position)
         {
             if (position == null) throw new PositionNullException("Position value is null");
             
-            _positionsRepository.DeleteItem(position);
+            await _positionsRepository.DeleteItem(position);
         }
 
-        public void UpdatePosition(Position position)
+        public async Task UpdatePosition(Position position)
         {
             if (position == null) throw new PositionNullException("Position value is null");
 
-            _positionsRepository.DeleteItem(position);
+            await _positionsRepository.DeleteItem(position);
         }
     }
 }

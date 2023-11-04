@@ -23,9 +23,9 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet, Route("positions")]
-        public IActionResult GetPositionsList()
+        public async Task<IActionResult> GetPositionsList()
         {
-            var positions = _positionsService.GetPositions();
+            var positions = await _positionsService.GetPositions();
             if (positions == null) return NotFound();
             return Ok(positions);
         }
@@ -37,9 +37,9 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// <param name="positionName"></param>
         /// <returns></returns>
         [HttpGet, Route("positions/{positionName}")]
-        public IActionResult GetPositionsByName(string positionName)
+        public async Task<IActionResult> GetPositionsByName(string positionName)
         {
-            var positions = _positionsService.GetPositions();
+            var positions = await _positionsService.GetPositions();
             if (positions == null) return NotFound();
             return Ok(positions);
         }
@@ -50,9 +50,9 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet, Route("positions/{id}")]
-        public IActionResult GetPositionById(Guid id)
+        public async Task<IActionResult> GetPositionById(Guid id)
         {
-            var position = _positionsService.GetPositionById(id);
+            var position = await _positionsService.GetPositionById(id);
             if (position == null) return NotFound();
             return Ok(position);
         }
@@ -63,9 +63,9 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// <param name="restaurantId"></param>
         /// <returns></returns>
         [HttpGet, Route("positions/{restaurantId}")]
-        public IActionResult GetPositionsByRestaurant(Guid restaurantId) 
+        public async Task<IActionResult> GetPositionsByRestaurant(Guid restaurantId) 
         {
-            var positions = _positionsService.GetPositionsByRestaurant(restaurantId);
+            var positions = await _positionsService.GetPositionsByRestaurant(restaurantId);
             if (positions == null) return NotFound();
             return Ok(positions);
         }
@@ -76,9 +76,9 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// <param name="categoryId"></param>
         /// <returns></returns>
         [HttpGet, Route("positions/{categoryId}")]
-        public IActionResult GetPositionsByCategory(Guid categoryId)
+        public async Task<IActionResult> GetPositionsByCategory(Guid categoryId)
         {
-            var positions = _positionsService.GetPositionsByCategory(categoryId);
+            var positions = await _positionsService.GetPositionsByCategory(categoryId);
             if (positions == null) return NotFound();
             return Ok(positions);
         }

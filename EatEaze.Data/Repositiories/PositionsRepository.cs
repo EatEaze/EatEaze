@@ -10,33 +10,33 @@ namespace EatEaze.Data.Repositiories
         {
         }
 
-        public Position? TryGetPositionById(Guid positionId)
+        public async Task<Position?> TryGetPositionById(Guid positionId)
         {
-            var position = _eatEazeDataContext.Positions.FirstOrDefault(p => p.PositionId == positionId);
+            var position = await _eatEazeDataContext.Positions.FirstOrDefaultAsync(p => p.PositionId == positionId);
             return position;
         }
 
-        public IEnumerable<Position> GetPositionsByPositionName(string positionName)
+        public async Task<IEnumerable<Position>> GetPositionsByPositionName(string positionName)
         {
-            var positions = _eatEazeDataContext.Positions.Where(p => p.PositionName.Contains(positionName));
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.PositionName.Contains(positionName)).ToListAsync();
             return positions;
         }
 
-        public IEnumerable<Position> GetPositionsByRestaurantId(Guid restaurantId)
+        public async Task<IEnumerable<Position>> GetPositionsByRestaurantId(Guid restaurantId)
         {
-            var positions = _eatEazeDataContext.Positions.Where(p => p.RestarauntId == restaurantId);
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.RestarauntId == restaurantId).ToListAsync();
             return positions;
         }
 
-        public IEnumerable<Position> GetPositionsByCategoryId(Guid categoryId)
+        public async Task<IEnumerable<Position>> GetPositionsByCategoryId(Guid categoryId)
         {
-            var positions = _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId);
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId).ToListAsync();
             return positions;
         }
 
-        public IEnumerable<Position> GetPositionsByCategoryIdAndRestaurantId(Guid categoryId, Guid restaurantId)
+        public async Task<IEnumerable<Position>> GetPositionsByCategoryIdAndRestaurantId(Guid categoryId, Guid restaurantId)
         {
-            var positions = _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId && p.RestarauntId == restaurantId);
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId && p.RestarauntId == restaurantId).ToListAsync();
             return positions;
         }
     }
