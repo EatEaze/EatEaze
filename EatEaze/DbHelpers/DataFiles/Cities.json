@@ -1,22 +1,18 @@
 ﻿[
   {
     "CityId": "f648441a-1d01-4fdb-bd56-9c30596ed261",
-    "CityName": "Tonopah"
+    "CityName": "Москва"
   },
   {
     "CityId": "e06a5116-d5c7-49b8-bd1e-4f4981273b84",
-    "CityName": "Carrsville"
+    "CityName": "Санкт-Петербург"
   },
   {
     "CityId": "f966e3b2-73c3-4e6f-85dc-b3f54a5bf0b8",
-    "CityName": "Nipinnawasee"
+    "CityName": "Екатеринбург"
   },
   {
     "CityId": "7785bc31-048f-47f0-af55-0de1bf22e475",
-    "CityName": "Dargan"
-  },
-  {
-    "CityId": "89a668af-9f6e-4989-b4e7-1f06412095f2",
-    "CityName": "Darlington"
+    "CityName": "Казань"
   }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    {
+      "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+      "CategoryName": "Фастфуд"
+    },
+    {
+      "CategoryId": "69ad9553-3e46-4270-9949-d941c377935f",
+      "CategoryName": "Пицца"
+    },
+    {
+      "CategoryId": "f4b6b934-8ee7-42bb-a56e-7d2e1acce72c",
+      "CategoryName": "Азиатская кухня"
+    }
+  }
+]

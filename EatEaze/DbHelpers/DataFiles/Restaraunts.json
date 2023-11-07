@@ -1,0 +1,30 @@
+[
+  {
+    "RestarauntId": "be642f48-9366-40f3-99cc-524bafc4563b",
+    "RestaruntName": "Вкусно и точка"
+  },
+  {
+    "RestarauntId": "aa8b5fb7-628a-4b54-ab98-f90a835f42cf",
+    "RestarauntName": "KFC"
+  },
+  {
+    "RestarauntId": "3cf69cce-8890-40e4-a8ac-e041dd9b19f3",
+    "RestaruntName": "Burger King"
+  },
+  {
+    "RestarauntId": "10c3e90c-cf1f-43d4-976a-4fe8d236123d",
+    "RestaruntName": "Якитория"
+  },
+  {
+    "RestarauntId": "80574858-a0c2-4ac3-9abb-56c711df1e6f",
+    "RestaruntName": "Муракаме"
+  },
+  {
+    "RestarauntId": "666d7eeb-8d20-40cb-80a9-fb6e39f6d11c",
+    "RestarauntName": "Додо Пицца"
+  },
+  {
+    "RestarauntId": "338540ed-f104-4a17-9d4d-ee51d467a70a",
+    "RestarauntName": "Доминос Пицца"
+  }
+]
