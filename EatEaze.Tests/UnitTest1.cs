@@ -16,7 +16,10 @@ namespace EatEaze.Tests
         public void Test1()
         {
             string[] opt = { };
-            _contextFactory.CreateDbContext(opt);
+            var dataContext = _contextFactory.CreateDbContext(opt);
+            
         }
+
+
     }
 }
