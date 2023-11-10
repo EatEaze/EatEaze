@@ -1,5 +1,18 @@
 [
     {
-
+        "PositionId": "6e6351b9-2eff-490d-bd2a-959d11611da2",
+        "PositionName": "Биг Хит",
+        "RestarauntId": "be642f48-9366-40f3-99cc-524bafc4563b",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+        "Count": 500,
+        "ImageURL": "https://vkusnotochkamenu.ru/image/cache/catalog/photo/463152836-big-hit-600x600.jpg"
+    },
+    {
+        "PositionId": "6119eaab-1dc3-4be3-af9a-8dd5504fa37e",
+        "PositionName": "Чикен Премьер",
+        "RestarauntId": "be642f48-9366-40f3-99cc-524bafc4563b",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+        "Count": 500,
+        "ImageURL": "https://vkusnoitochka.ru/resize/290x286/upload/iblock/399/rcrahic86gvdateldvpul16wwqid9sho/large.png"
     }
 ]

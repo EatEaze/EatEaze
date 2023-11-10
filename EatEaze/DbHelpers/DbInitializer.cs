@@ -77,6 +77,20 @@ namespace EatEaze.DbHelpers
                 _eatEazeDataContext.RestarauntsInCities.AddRange(restarauntsInCities);
             }
 
+            if (!_eatEazeDataContext.Positions.Any())
+            {
+                string path = Path.Combine(_path, "Positions.json");
+                string json = File.ReadAllText(path);
+                var positions = JsonSerializer.Deserialize<List<Position>>(json);
+
+                if (positions == null)
+                {
+                    return 1;
+                }
+
+                _eatEazeDataContext.Positions.AddRange(positions);
+            }
+
             _eatEazeDataContext.SaveChanges();
             return 0;
         }
