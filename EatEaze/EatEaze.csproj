@@ -14,4 +14,19 @@
     <ProjectReference Include="..\EatEaze.Data\EatEaze.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DbHelpers\DataFiles\Categories.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DbHelpers\DataFiles\Cities.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DbHelpers\DataFiles\Restaraunts.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DbHelpers\DataFiles\RestarauntsInCities.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

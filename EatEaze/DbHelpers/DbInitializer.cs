@@ -1,7 +1,7 @@
 ﻿using EatEaze.Data.DataContext;
 using EatEaze.Data.Entities;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.Text.Json;
+
 
 namespace EatEaze.DbHelpers
 {
@@ -12,6 +12,7 @@ namespace EatEaze.DbHelpers
     {
         private static string[] _opt = { };
         private static EatEazeDataContext _eatEazeDataContext = new EatEazeDataContextDesignTimeFactory().CreateDbContext(_opt);
+        private static readonly string _path = "C:\\Users\\Тимофей\\Source\\Repos\\EatEaze\\EatEaze\\EatEaze\\DbHelpers\\DataFiles";
 
         /// <summary>
         /// provides DbSets with data from json files.
@@ -19,9 +20,10 @@ namespace EatEaze.DbHelpers
         /// <returns>0 if everything is okay, 1 if some data deserialized wrong</returns>
         public static int InitDatabase()
         {
+
             if (!_eatEazeDataContext.Categories.Any())
             {
-                string path = Path.Combine(@".\DataFiles", "Categories.json");
+                string path = Path.Combine(_path, "Categories.json");
                 string json = File.ReadAllText(path);
                 var categories = JsonSerializer.Deserialize<List<Category>>(json);
 
@@ -35,7 +37,7 @@ namespace EatEaze.DbHelpers
 
             if (!_eatEazeDataContext.Cities.Any())
             {
-                string path = Path.Combine(@".\DataFiles", "Cities.json");
+                string path = Path.Combine(_path, "Cities.json");
                 string json = File.ReadAllText(path);
                 var cities = JsonSerializer.Deserialize<List<City>>(json);
 
@@ -49,7 +51,7 @@ namespace EatEaze.DbHelpers
 
             if (!_eatEazeDataContext.Restaraunts.Any())
             {
-                string path = Path.Combine(@".\DataFiles", "Restaraunts.json");
+                string path = Path.Combine(_path, "Restaraunts.json");
                 string json = File.ReadAllText(path);
                 var restaraunts = JsonSerializer.Deserialize<List<Restaraunt>>(json);
 
@@ -63,7 +65,7 @@ namespace EatEaze.DbHelpers
 
             if (!_eatEazeDataContext.RestarauntsInCities.Any())
             {
-                string path = Path.Combine(@".\DataFiles", "RestarauntsInCities.json");
+                string path = Path.Combine(_path, "RestarauntsInCities.json");
                 string json = File.ReadAllText(path);
                 var restarauntsInCities = JsonSerializer.Deserialize<List<RestarauntInCity>>(json);
 
@@ -75,6 +77,7 @@ namespace EatEaze.DbHelpers
                 _eatEazeDataContext.RestarauntsInCities.AddRange(restarauntsInCities);
             }
 
+            _eatEazeDataContext.SaveChanges();
             return 0;
         }
     }
