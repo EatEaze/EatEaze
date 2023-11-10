@@ -3,6 +3,7 @@ using EatEazeServices.Implementations;
 using EatEaze.Data.Repositiories;
 using EatEaze.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
+using EatEaze.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<EatEazeDataContext>(options =>
 );
 
 builder.Services.AddScoped<PositionsRepository>();
+builder.Services.AddScoped<CategoriesRepository>();
+builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IPositionsService, PositionsService>();
 
 var app = builder.Build();

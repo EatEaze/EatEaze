@@ -82,5 +82,17 @@ namespace EatEaze.WebApplicationAPI.Controllers
             if (positions == null) return NotFound();
             return Ok(positions);
         }
+
+        /// <summary>
+        /// Post new position to database
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        [HttpPost, Route("positions/addPosition")]
+        public async Task<ActionResult<Position>> PostPosition(Position position)
+        {
+            await _positionsService.AddPosition(position);
+            return CreatedAtAction(nameof(PostPosition), position);
+        }
     }
 }
