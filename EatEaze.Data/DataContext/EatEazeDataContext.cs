@@ -23,5 +23,11 @@ namespace EatEaze.Data.DataContext
         public DbSet<Category> Categories { get; set; }
 
         #endregion
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }
