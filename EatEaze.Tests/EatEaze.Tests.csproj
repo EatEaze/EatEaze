@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EatEaze.Data\EatEaze.Data.csproj" />
+    <ProjectReference Include="..\EatEazeServices\EatEaze.Services.csproj" />
     <ProjectReference Include="..\EatEaze\EatEaze.csproj" />
   </ItemGroup>
 
