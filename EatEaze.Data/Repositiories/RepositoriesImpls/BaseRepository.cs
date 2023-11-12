@@ -2,7 +2,7 @@
 using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace EatEaze.Data.Repositiories
+namespace EatEaze.Data.Repositiories.RepositoriesImpls
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {

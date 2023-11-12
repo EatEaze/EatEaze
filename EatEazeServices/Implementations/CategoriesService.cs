@@ -1,5 +1,5 @@
 ﻿using EatEaze.Data.Entities;
-using EatEaze.Data.Repositiories;
+using EatEaze.Data.Repositiories.RepositoriesImpls;
 using EatEazeServices.Interfaces;
 
 namespace EatEaze.Services.Implementations

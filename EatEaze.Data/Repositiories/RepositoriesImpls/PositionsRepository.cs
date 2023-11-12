@@ -1,13 +1,17 @@
 ﻿using EatEaze.Data.DataContext;
 using EatEaze.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 
-namespace EatEaze.Data.Repositiories
+namespace EatEaze.Data.Repositiories.RepositoriesImpls
 {
-    public class PositionsRepository : BaseRepository<Position>
+    public class PositionsRepository : BaseRepository<Position>, IPositionRepository
     {
-        public PositionsRepository(EatEazeDataContext dataContext) : base(dataContext)
+        //private EatEazeDataContext _eatEazeDataContext;
+
+        public PositionsRepository(EatEazeDataContext dataContext) : base(dataContext) 
         {
+            
         }
 
         public async Task<Position?> TryGetPositionById(Guid positionId)
@@ -39,5 +43,40 @@ namespace EatEaze.Data.Repositiories
             var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId && p.RestarauntId == restaurantId).ToListAsync();
             return positions;
         }
+
+        /*public async Task AddItem(Position item)
+        {
+            await _eatEazeDataContext.Positions.AddAsync(item);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task AddItem(IEnumerable<Position> items)
+        {
+            await _eatEazeDataContext.Positions.AddRangeAsync(items);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteItem(Position item)
+        {
+            _eatEazeDataContext.Positions.Remove(item);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteItem(IEnumerable<Position> items)
+        {
+            _eatEazeDataContext.Positions.RemoveRange(items);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Position>> GetListOfItem()
+        {
+            return await _eatEazeDataContext.Positions.ToListAsync();
+        }
+
+        public async Task UpdateItem(Position item)
+        {
+            _eatEazeDataContext.Update(item);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }*/
     }
 }

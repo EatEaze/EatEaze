@@ -1,7 +1,7 @@
 ﻿using EatEaze.Exceptions;
 using EatEaze.Data.Entities;
-using EatEaze.Data.Repositiories;
 using EatEazeServices.Interfaces;
+using EatEaze.Data.Repositiories.RepositoriesImpls;
 
 namespace EatEazeServices.Implementations
 {

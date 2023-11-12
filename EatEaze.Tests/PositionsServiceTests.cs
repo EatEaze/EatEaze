@@ -1,7 +1,7 @@
 ﻿using EatEazeServices.Interfaces;
 using EatEazeServices.Implementations;
-using EatEaze.Data.Repositiories;
 using EatEaze.Data.DataContext;
+using EatEaze.Data.Repositiories.RepositoriesImpls;
 
 namespace EatEaze.Tests
 {

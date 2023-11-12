@@ -1,27 +1,22 @@
 using EatEazeServices.Interfaces;
 using EatEazeServices.Implementations;
-using EatEaze.Data.Repositiories;
 using EatEaze.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 using EatEaze.Services.Implementations;
+using EatEaze.DbHelpers;
+using EatEaze.Data.Repositiories.RepositoriesImpls;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://127.0.0.1:8080")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-        );
-});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<EatEazeDataContext>(options =>
@@ -42,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
 app.UseHttpsRedirection();
 

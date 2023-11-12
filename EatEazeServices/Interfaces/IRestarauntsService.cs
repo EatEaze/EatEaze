@@ -4,7 +4,7 @@ namespace EatEazeServices.Interfaces
 {
     public interface IRestarauntsService
     {
-        public IEnumerable<Restaraunt> GetRestaraunts();
-        public IEnumerable<Restaraunt> GetRestaraunts(Guid CityId);
+        public Task<IEnumerable<Restaraunt>> GetRestaraunts();
+        public Task<IEnumerable<Restaraunt>> GetRestaraunts(Guid CityId);
     }
 }
