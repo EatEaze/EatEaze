@@ -1,19 +1,26 @@
 ﻿using EatEaze.Data.Entities;
+using EatEaze.Data.Repositiories.RepositoriesImpls;
 using EatEazeServices.Interfaces;
 
 namespace EatEaze.Services.Implementations
 {
     public class RestarauntsService : IRestarauntsService
     {
+        private RestarauntsRepository _restarauntsRepository;
 
-        public Task<IEnumerable<Restaraunt>> GetRestaraunts()
+        public RestarauntsService(RestarauntsRepository restarauntsRepository)
         {
-            throw new NotImplementedException();
+            _restarauntsRepository = restarauntsRepository;    
         }
 
-        public Task<IEnumerable<Restaraunt>> GetRestaraunts(Guid CityId)
+        public async Task<IEnumerable<Restaraunt>> GetRestaraunts()
         {
-            throw new NotImplementedException();
+            return await _restarauntsRepository.GetListOfItem();
+        }
+
+        public async Task<IEnumerable<Restaraunt>> GetRestaraunts(Guid CityId)
+        {
+            return await _restarauntsRepository.GetRestarauntsByCities(CityId);
         }
     }
 }

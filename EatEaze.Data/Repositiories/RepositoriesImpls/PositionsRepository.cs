@@ -5,7 +5,7 @@ using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 
 namespace EatEaze.Data.Repositiories.RepositoriesImpls
 {
-    public class PositionsRepository : BaseRepository<Position>, IPositionRepository
+    public class PositionsRepository : BaseRepository<Position>, IPositionsRepository
     {
         //private EatEazeDataContext _eatEazeDataContext;
 

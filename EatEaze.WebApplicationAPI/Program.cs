@@ -25,8 +25,10 @@ builder.Services.AddDbContext<EatEazeDataContext>(options =>
 
 builder.Services.AddScoped<PositionsRepository>();
 builder.Services.AddScoped<CategoriesRepository>();
+builder.Services.AddScoped<RestarauntsRepository>();
 builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IPositionsService, PositionsService>();
+builder.Services.AddScoped<IRestarauntsService, RestarauntsService>();
 
 var app = builder.Build();
 
