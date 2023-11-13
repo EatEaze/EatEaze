@@ -20,6 +20,9 @@ namespace EatEaze.Data.Entities
         [Required]
         public int Count { get; set; }
 
+        [Required] 
+        public double Price { get; set; }
+
         public string? ImageURL { get; set; }
 
 
