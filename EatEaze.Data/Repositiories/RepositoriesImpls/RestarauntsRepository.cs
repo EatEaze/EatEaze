@@ -5,10 +5,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EatEaze.Data.Repositiories.RepositoriesImpls
 {
-    public class RestarauntsRepository : BaseRepository<Restaraunt>, IRestarauntsRepository
+    public class RestarauntsRepository : IRestarauntsRepository
     {
-        public RestarauntsRepository(EatEazeDataContext dataContext) : base(dataContext) 
-        { }
+        private EatEazeDataContext _eatEazeDataContext;
+
+        public RestarauntsRepository(EatEazeDataContext dataContext) // :  base(dataContext) 
+        {
+            _eatEazeDataContext = dataContext;
+        }
+
+        public async Task AddItem(Restaraunt item)
+        {
+            await _eatEazeDataContext.Restaraunts.AddAsync(item);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task AddItem(IEnumerable<Restaraunt> items)
+        {
+            await _eatEazeDataContext.Restaraunts.AddRangeAsync(items);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteItem(Restaraunt item)
+        {
+            _eatEazeDataContext.Restaraunts.Remove(item);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteItem(IEnumerable<Restaraunt> items)
+        {
+            _eatEazeDataContext.Restaraunts.RemoveRange(items);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Restaraunt>> GetListOfItem()
+        {
+            return await _eatEazeDataContext.Restaraunts.ToListAsync();
+        }
 
         public async Task<IEnumerable<Restaraunt>> GetRestarauntsByCities(Guid cityId)
         {
@@ -20,6 +53,12 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             }
 
             return result;
+        }
+
+        public async Task UpdateItem(Restaraunt item)
+        {
+            _eatEazeDataContext.Update(item);
+            await _eatEazeDataContext.SaveChangesAsync();
         }
     }
 }

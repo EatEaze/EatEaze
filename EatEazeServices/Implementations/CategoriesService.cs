@@ -1,14 +1,14 @@
 ﻿using EatEaze.Data.Entities;
-using EatEaze.Data.Repositiories.RepositoriesImpls;
+using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 using EatEazeServices.Interfaces;
 
 namespace EatEaze.Services.Implementations
 {
     public class CategoriesService : ICategoriesService
     {
-        private CategoriesRepository _categoriesRepository;
+        private ICategoryRepository _categoriesRepository;
 
-        public CategoriesService(CategoriesRepository categoriesRepository)
+        public CategoriesService(ICategoryRepository categoriesRepository)
         {
             _categoriesRepository = categoriesRepository;
         }

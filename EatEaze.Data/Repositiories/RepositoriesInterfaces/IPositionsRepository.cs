@@ -1,9 +1,8 @@
-﻿
-using EatEaze.Data.Entities;
+﻿using EatEaze.Data.Entities;
 
 namespace EatEaze.Data.Repositiories.RepositoriesInterfaces
 {
-    public interface IPositionsRepository
+    public interface IPositionsRepository : IBaseRepository<Position>
     {
         Task<Position?> TryGetPositionById(Guid positionId);
         Task<IEnumerable<Position>> GetPositionsByPositionName(string positionName);

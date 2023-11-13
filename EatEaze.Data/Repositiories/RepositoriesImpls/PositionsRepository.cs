@@ -5,13 +5,13 @@ using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 
 namespace EatEaze.Data.Repositiories.RepositoriesImpls
 {
-    public class PositionsRepository : BaseRepository<Position>, IPositionsRepository
+    public class PositionsRepository : IPositionsRepository
     {
-        //private EatEazeDataContext _eatEazeDataContext;
+        private EatEazeDataContext _eatEazeDataContext;
 
-        public PositionsRepository(EatEazeDataContext dataContext) : base(dataContext) 
+        public PositionsRepository(EatEazeDataContext dataContext) //: base(dataContext) 
         {
-            
+            _eatEazeDataContext = dataContext;
         }
 
         public async Task<Position?> TryGetPositionById(Guid positionId)
@@ -44,7 +44,7 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             return positions;
         }
 
-        /*public async Task AddItem(Position item)
+        public async Task AddItem(Position item)
         {
             await _eatEazeDataContext.Positions.AddAsync(item);
             await _eatEazeDataContext.SaveChangesAsync();
@@ -77,6 +77,6 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
         {
             _eatEazeDataContext.Update(item);
             await _eatEazeDataContext.SaveChangesAsync();
-        }*/
+        }
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace EatEaze.Data.Repositiories.RepositoriesInterfaces
+﻿using EatEaze.Data.Entities;
+
+namespace EatEaze.Data.Repositiories.RepositoriesInterfaces
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IBaseRepository<Category>
     {
 
     }
