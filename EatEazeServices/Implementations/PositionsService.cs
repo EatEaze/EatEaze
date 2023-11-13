@@ -8,9 +8,9 @@ namespace EatEazeServices.Implementations
 {
     public class PositionsService : IPositionsService
     {
-        private PositionsRepository _positionsRepository;
+        private IPositionsRepository _positionsRepository;
 
-        public PositionsService(PositionsRepository positionsRepository)
+        public PositionsService(IPositionsRepository positionsRepository)
         {
             _positionsRepository = positionsRepository; 
         }

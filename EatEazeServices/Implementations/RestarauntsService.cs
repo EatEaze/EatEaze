@@ -1,14 +1,14 @@
 ﻿using EatEaze.Data.Entities;
-using EatEaze.Data.Repositiories.RepositoriesImpls;
+using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 using EatEazeServices.Interfaces;
 
 namespace EatEaze.Services.Implementations
 {
     public class RestarauntsService : IRestarauntsService
     {
-        private RestarauntsRepository _restarauntsRepository;
+        private IRestarauntsRepository _restarauntsRepository;
 
-        public RestarauntsService(RestarauntsRepository restarauntsRepository)
+        public RestarauntsService(IRestarauntsRepository restarauntsRepository)
         {
             _restarauntsRepository = restarauntsRepository;    
         }

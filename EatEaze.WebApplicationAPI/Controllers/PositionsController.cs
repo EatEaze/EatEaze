@@ -36,10 +36,10 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// </summary>
         /// <param name="positionName"></param>
         /// <returns></returns>
-        [HttpGet, Route("positions/{positionName}")]
+        [HttpGet, Route("positions/name/{positionName}")]
         public async Task<IActionResult> GetPositionsByName(string positionName)
         {
-            var positions = await _positionsService.GetPositions();
+            var positions = await _positionsService.GetPositions(positionName);
             if (positions == null) return NotFound();
             return Ok(positions);
         }
@@ -62,7 +62,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// </summary>
         /// <param name="restaurantId"></param>
         /// <returns></returns>
-        [HttpGet, Route("positions/{restaurantId}")]
+        [HttpGet, Route("positions/restaraunts/{restaurantId}")]
         public async Task<IActionResult> GetPositionsByRestaurant(Guid restaurantId) 
         {
             var positions = await _positionsService.GetPositionsByRestaurant(restaurantId);
@@ -75,7 +75,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         /// </summary>
         /// <param name="categoryId"></param>
         /// <returns></returns>
-        [HttpGet, Route("positions/{categoryId}")]
+        [HttpGet, Route("positions/categories/{categoryId}")]
         public async Task<IActionResult> GetPositionsByCategory(Guid categoryId)
         {
             var positions = await _positionsService.GetPositionsByCategory(categoryId);

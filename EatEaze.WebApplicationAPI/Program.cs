@@ -6,6 +6,7 @@ using EatEaze.Services.Implementations;
 using EatEaze.DbHelpers;
 using EatEaze.Data.Repositiories.RepositoriesImpls;
 using System.Text.Json.Serialization;
+using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,9 +24,9 @@ builder.Services.AddDbContext<EatEazeDataContext>(options =>
     options.UseNpgsql(connectionString)
 );
 
-builder.Services.AddScoped<PositionsRepository>();
-builder.Services.AddScoped<CategoriesRepository>();
-builder.Services.AddScoped<RestarauntsRepository>();
+builder.Services.AddScoped<IPositionsRepository, PositionsRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoriesRepository>();
+builder.Services.AddScoped<IRestarauntsRepository, RestarauntsRepository>();
 builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IPositionsService, PositionsService>();
 builder.Services.AddScoped<IRestarauntsService, RestarauntsService>();
