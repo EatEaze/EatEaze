@@ -11,4 +11,10 @@
     <ProjectReference Include="..\EatEaze\EatEaze.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="HashCodes.HashMethods">
+      <HintPath>..\..\..\HashCodes\HashCodes.HashMethods\bin\Debug\net6.0\HashCodes.HashMethods.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
