@@ -4,6 +4,7 @@ namespace EatEaze.Services.Interfaces
 {
     public interface IAuthorizationService
     {
-        Task AuthorizeUser(string login, string password);
+        Task<User> AuthorizeUser(string login, string password);
+        Task RegistrateUser(User user);
     }
 }

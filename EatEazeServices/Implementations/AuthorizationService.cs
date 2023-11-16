@@ -14,10 +14,19 @@ namespace EatEaze.Services.Implementations
             _userRepository = userRepository;
         }
 
-        public async Task AuthorizeUser(string login, string password)
+        public async Task<User> AuthorizeUser(string login, string password)
         {
             string hashPassword = MD5Hash.CalculateMD5Hash(password);
-            await _userRepository.GetUserByLoginAndPassword(login, hashPassword);
+            var result = await _userRepository.GetUserByLoginAndPassword(login, hashPassword);
+
+            if (result == null) throw new Exception();
+
+            return result;
+        }
+
+        public Task RegistrateUser(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }
