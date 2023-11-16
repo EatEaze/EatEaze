@@ -1,7 +1,9 @@
 ﻿using EatEaze.Data.Entities;
 using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 using EatEaze.Services.Interfaces;
-using HashCodes.HashMethods;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+//using HashCodes.HashMethods;
 
 namespace EatEaze.Services.Implementations
 {
@@ -14,19 +16,18 @@ namespace EatEaze.Services.Implementations
             _userRepository = userRepository;
         }
 
-        public async Task<User> AuthorizeUser(string login, string password)
+        public async Task<User?> TryAuthorizeUser(string login, string password)
         {
-            string hashPassword = MD5Hash.CalculateMD5Hash(password);
-            var result = await _userRepository.GetUserByLoginAndPassword(login, hashPassword);
-
-            if (result == null) throw new Exception();
-
+            // string hashPassword = MD5Hash.CalculateMD5Hash(password);
+            var result = await _userRepository.GetUserByLoginAndPassword(login, password);
             return result;
         }
 
-        public Task RegistrateUser(User user)
+        public async Task<User> RegistrateUser(User user)
         {
-            throw new NotImplementedException();
+            await _userRepository.AddItem(user);
+
+            return user;
         }
     }
 }
