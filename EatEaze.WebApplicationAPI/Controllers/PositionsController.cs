@@ -1,4 +1,6 @@
-﻿using EatEaze.Data.Entities;
+﻿using AutoMapper;
+using EatEaze.Data.Entities;
+using EatEaze.Responce;
 using EatEazeServices.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +12,12 @@ namespace EatEaze.WebApplicationAPI.Controllers
     [ApiController]
     public class PositionsController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private IPositionsService _positionsService;
 
-        public PositionsController(IPositionsService positionsService)
+        public PositionsController(IMapper mapper, IPositionsService positionsService)
         {
+            _mapper = mapper;
             _positionsService = positionsService;
         }
 
@@ -27,7 +31,10 @@ namespace EatEaze.WebApplicationAPI.Controllers
         {
             var positions = await _positionsService.GetPositions();
             if (positions == null) return NotFound();
-            return Ok(positions);
+
+            //_mapper.Map<List<FoodCardResponce>>(positions);
+
+            return Ok(_mapper.Map<List<FoodCardResponce>>(positions));
         }
 
 
@@ -41,7 +48,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         {
             var positions = await _positionsService.GetPositions(positionName);
             if (positions == null) return NotFound();
-            return Ok(positions);
+            return Ok(_mapper.Map<List<FoodCardResponce>>(positions));
         }
 
         /// <summary>
@@ -54,7 +61,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         {
             var position = await _positionsService.GetPositionById(id);
             if (position == null) return NotFound();
-            return Ok(position);
+            return Ok(_mapper.Map<FoodCardResponce>(position));
         }
 
         /// <summary>
@@ -67,7 +74,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         {
             var positions = await _positionsService.GetPositionsByRestaurant(restaurantId);
             if (positions == null) return NotFound();
-            return Ok(positions);
+            return Ok(_mapper.Map<List<FoodCardResponce>>(positions));
         }
 
         /// <summary>
@@ -80,7 +87,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
         {
             var positions = await _positionsService.GetPositionsByCategory(categoryId);
             if (positions == null) return NotFound();
-            return Ok(positions);
+            return Ok(_mapper.Map<List<FoodCardResponce>>(positions));
         }
 
         /// <summary>

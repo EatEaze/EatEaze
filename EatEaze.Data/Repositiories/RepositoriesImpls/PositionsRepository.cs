@@ -16,31 +16,46 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
 
         public async Task<Position?> TryGetPositionById(Guid positionId)
         {
-            var position = await _eatEazeDataContext.Positions.FirstOrDefaultAsync(p => p.PositionId == positionId);
+            var position = await _eatEazeDataContext.Positions
+                .Include(c => c.Category)
+                .Include(r => r.Restaraunt)
+                .FirstOrDefaultAsync(p => p.PositionId == positionId);
             return position;
         }
 
         public async Task<IEnumerable<Position>> GetPositionsByPositionName(string positionName)
         {
-            var positions = await _eatEazeDataContext.Positions.Where(p => p.PositionName.Contains(positionName)).ToListAsync();
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.PositionName.Contains(positionName))
+                .Include(c => c.Category)
+                .Include(r => r.Restaraunt)
+                .ToListAsync();
             return positions;
         }
 
         public async Task<IEnumerable<Position>> GetPositionsByRestaurantId(Guid restaurantId)
         {
-            var positions = await _eatEazeDataContext.Positions.Where(p => p.RestarauntId == restaurantId).ToListAsync();
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.RestarauntId == restaurantId)
+                .Include(c => c.Category)
+                .Include(r => r.Restaraunt)
+                .ToListAsync();
             return positions;
         }
 
         public async Task<IEnumerable<Position>> GetPositionsByCategoryId(Guid categoryId)
         {
-            var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId).ToListAsync();
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId)
+                .Include(c => c.Category)
+                .Include(r => r.Restaraunt)
+                .ToListAsync();
             return positions;
         }
 
         public async Task<IEnumerable<Position>> GetPositionsByCategoryIdAndRestaurantId(Guid categoryId, Guid restaurantId)
         {
-            var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId && p.RestarauntId == restaurantId).ToListAsync();
+            var positions = await _eatEazeDataContext.Positions.Where(p => p.CategoryId == categoryId && p.RestarauntId == restaurantId)
+                .Include(c => c.Category)
+                .Include(r => r.Restaraunt)
+                .ToListAsync();
             return positions;
         }
 
@@ -70,7 +85,7 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
 
         public async Task<IEnumerable<Position>> GetListOfItem()
         {
-            return await _eatEazeDataContext.Positions.ToListAsync();
+            return await _eatEazeDataContext.Positions.Include(c => c.Category).Include(r => r.Restaraunt).ToListAsync();
         }
 
         public async Task UpdateItem(Position item)

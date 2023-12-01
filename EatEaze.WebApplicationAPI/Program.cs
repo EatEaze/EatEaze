@@ -7,6 +7,8 @@ using EatEaze.DbHelpers;
 using EatEaze.Data.Repositiories.RepositoriesImpls;
 using System.Text.Json.Serialization;
 using EatEaze.Data.Repositiories.RepositoriesInterfaces;
+using AutoMapper;
+using EatEaze.WebApplicationAPI.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,7 @@ builder.Services.AddDbContext<EatEazeDataContext>(options =>
     options.UseNpgsql(connectionString)
 );
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IPositionsRepository, PositionsRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoriesRepository>();
 builder.Services.AddScoped<IRestarauntsRepository, RestarauntsRepository>();
