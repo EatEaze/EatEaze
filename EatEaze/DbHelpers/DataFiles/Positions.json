@@ -16,5 +16,77 @@
         "Count": 500,
         "ImageURL": "https://vkusnoitochka.ru/resize/290x286/upload/iblock/399/rcrahic86gvdateldvpul16wwqid9sho/large.png",
         "Price": 138.00
+    },
+    {
+        "PositionId": "17ed7c3e-24e0-44f2-886f-e019be4ea5ad",
+        "PositionName": "Чизбургер",
+        "RestarauntId": "aa8b5fb7-628a-4b54-ab98-f90a835f42cf",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+        "Count": 500,
+        "ImageURL": "https://s82079.cdn.ngenix.net/295x0/5fco444jd6p9x4v8n4d4m0tymmoi",
+        "Price": 99.00
+    },
+    {
+        "PositionId": "9ebb4322-8ea9-48bd-863e-c232791d7cb1",
+        "PositionName": "Шефбургер Острый",
+        "RestarauntId": "aa8b5fb7-628a-4b54-ab98-f90a835f42cf",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+        "Count": 500,
+        "ImageURL": "https://s82079.cdn.ngenix.net/330x0/z4auqzp49h3a81cp3q8e75meuaco",
+        "Price": 164.00
+    },
+    {
+        "PositionId": "3be00e6b-2498-4965-92c4-f14e3d8e98a9",
+        "PositionName": "Воппер",
+        "RestarauntId": "3cf69cce-8890-40e4-a8ac-e041dd9b19f3",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+        "Count": 500,
+        "ImageURL": "https://burger4me.ru/wp-content/uploads/2018/09/Vopper-Burger-King.png",
+        "Price": 279.99
+    },
+    {
+        "PositionId": "9ebb4322-8ea9-48bd-863e-c232791d7cb1",
+        "PositionName": "Гамбургер",
+        "RestarauntId": "3cf69cce-8890-40e4-a8ac-e041dd9b19f3",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510",
+        "Count": 500,
+        "ImageURL": "https://burgerkings.ru/image/cache/catalog/photo/45786396-gamburger-600x600.jpg",
+        "Price": 84.99
+    },
+    {
+        "PositionId": "07c72e50-6caa-4347-81fd-d8bdbd469948",
+        "PositionName": "Удон с курицей терияки",
+        "RestarauntId": "80574858-a0c2-4ac3-9abb-56c711df1e6f",
+        "CategoryId": "f4b6b934-8ee7-42bb-a56e-7d2e1acce72c",
+        "Count": 500,
+        "ImageURL": null,
+        "Price": 350.00
+    },
+    {
+        "PositionId": "6de49d28-0476-4db0-a0c8-7ef2eaaf954d",
+        "PositionName": "Роллы Филадельфия (6 шт.)",
+        "RestarauntId": "10c3e90c-cf1f-43d4-976a-4fe8d236123d",
+        "CategoryId": "f4b6b934-8ee7-42bb-a56e-7d2e1acce72c",
+        "Count": 500,
+        "ImageURL": "https://cafe-yakitori.ru/wp-content/uploads/2020/11/menu_filadelfia.jpg",
+        "Price": 300.00
+    },
+    {
+        "PositionId": "4b29f07f-b3a9-4718-a7d0-a12bb2c316ab",
+        "PositionName": "Пепперони фреш",
+        "RestarauntId": "666d7eeb-8d20-40cb-80a9-fb6e39f6d11c",
+        "CategoryId": "69ad9553-3e46-4270-9949-d941c377935f",
+        "Count": 500,
+        "ImageURL": "https://irecommend.ru/sites/default/files/product-images/1516270/6IAtySyGbIMawbFiAtGCKA.jpg",
+        "Price": 539.00
+    },
+    {
+        "PositionId": "29778ff8-8a4f-488c-800e-f8214cabc409",
+        "PositionName": "Чоризо Пиканте",
+        "RestarauntId": "338540ed-f104-4a17-9d4d-ee51d467a70a",
+        "CategoryId": "69ad9553-3e46-4270-9949-d941c377935f",
+        "Count": 500,
+        "ImageURL": "https://static.dodomino.ru/images/cached-600-1232-corizo-pikante-at-28-sm.png",
+        "Price": 623.00
     }
 ]
