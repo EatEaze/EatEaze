@@ -15,6 +15,7 @@ namespace EatEaze.WebApplicationAPI.Mapper
                 .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
                 .ForMember(dest => dest.ImageURL, opt => opt.MapFrom(src => src.ImageURL))
                 .ForMember(dest => dest.RestarauntName, opt => opt.MapFrom(src => src.Restaraunt.RestarauntName))
+                .ForMember(dest => dest.RestarauntImageURL, opt => opt.MapFrom(src => src.Restaraunt.ImageURL))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.CategoryName));
         }
     }

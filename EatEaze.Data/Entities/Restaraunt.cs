@@ -13,6 +13,8 @@ namespace EatEaze.Data.Entities
         [Required(AllowEmptyStrings = false)]
         public string RestarauntName { get; set; }
 
+        public string? ImageURL { get; set; } 
+
         [JsonIgnore]
         public virtual ICollection<RestarauntInCity> RestarauntsInCities { get; set; }
         [JsonIgnore]

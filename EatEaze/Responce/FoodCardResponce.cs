@@ -12,6 +12,8 @@ namespace EatEaze.Responce
 
             public string RestarauntName { get; set; }
 
+            public string? RestarauntImageURL { get; set; }
+
             public string CategoryName { get; set; }
 
             public int Count { get; set; }
