@@ -2,6 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace EatEaze.Data.Entities
 {
@@ -12,7 +13,9 @@ namespace EatEaze.Data.Entities
 
         public Guid RestarauntId { get; set; }
 
+        [JsonIgnore]
         public virtual City City { get; set; }
+        [JsonIgnore]
         public virtual Restaraunt Restaraunt { get; set; }
     }
 }

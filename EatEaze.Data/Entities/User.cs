@@ -1,6 +1,7 @@
 ﻿#pragma warning disable CS8618
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace EatEaze.Data.Entities
 {
@@ -19,8 +20,10 @@ namespace EatEaze.Data.Entities
         public string Password { get; set; }
 
         public string Token { get; set; }
-
+        
+        [JsonIgnore]
         public virtual UserRole UserRole { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
