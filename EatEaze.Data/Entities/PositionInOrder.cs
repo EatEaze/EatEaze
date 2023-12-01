@@ -2,7 +2,6 @@
 
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace EatEaze.Data.Entities
 {
@@ -16,9 +15,8 @@ namespace EatEaze.Data.Entities
         [Required]
         public int Count { get; set; }
 
-        [JsonIgnore]
+
         public virtual Order Order { get; set; }
-        [JsonIgnore]
         public virtual Position Position { get; set; }
     }
 }
