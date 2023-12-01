@@ -1,6 +1,7 @@
 ﻿#pragma warning disable CS8618
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace EatEaze.Data.Entities
 {
@@ -13,7 +14,9 @@ namespace EatEaze.Data.Entities
         public string RestarauntName { get; set; }
 
 
+        [JsonIgnore]
         public virtual ICollection<RestarauntInCity> RestarauntsInCities { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Position> Positions { get; set; }
     }
 }

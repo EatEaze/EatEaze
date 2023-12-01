@@ -1,6 +1,7 @@
 ﻿#pragma warning disable CS8618
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace EatEaze.Data.Entities
 {
@@ -19,8 +20,9 @@ namespace EatEaze.Data.Entities
 
         public DateTime? DeliveryDate { get; set; }
 
-
+        [JsonIgnore]
         public virtual User User { get; set; }
+        [JsonIgnore]
         public virtual ICollection<PositionInOrder> PositionsInOrders { get; set; }
     }
 }
