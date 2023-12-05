@@ -22,5 +22,10 @@ namespace EatEaze.Services.Implementations
         {
             return await _restarauntsRepository.GetRestarauntsByCities(CityId);
         }
+
+        public async Task<IEnumerable<Restaraunt>> GetRestarauntsByCategory(Guid categoryId)
+        {
+            return await _restarauntsRepository.GetRestarauntsByCategories(categoryId);
+        }
     }
 }

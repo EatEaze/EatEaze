@@ -43,6 +43,18 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             return await _eatEazeDataContext.Restaraunts.ToListAsync();
         }
 
+        public async Task<IEnumerable<Restaraunt>> GetRestarauntsByCategories(Guid categoryId)
+        {
+            var result = await _eatEazeDataContext.Restaraunts.Where(c => c.CategoryId == categoryId).ToListAsync();
+
+            if (result == null)
+            {
+                throw new Exception();
+            }
+
+            return result;
+        }
+
         public async Task<IEnumerable<Restaraunt>> GetRestarauntsByCities(Guid cityId)
         {
             var result = await _eatEazeDataContext.RestarauntsInCities.Where(c => c.CityId == cityId).ToListAsync() as IEnumerable<Restaraunt>;

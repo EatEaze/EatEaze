@@ -26,5 +26,13 @@ namespace EatEaze.WebApplicationAPI.Controllers
             if (result == null) return NotFound();
             return Ok(result);  
         }
+
+        [HttpGet, Route("restaraunts/category/{categoryId}")]
+        public async Task<IActionResult> GetRestarauntsByCategory(Guid categoryId)
+        {
+            var result = await _restarauntsService.GetRestarauntsByCategory(categoryId);
+            if (result == null) return NotFound();
+            return Ok(result);
+        }
     }
 }
