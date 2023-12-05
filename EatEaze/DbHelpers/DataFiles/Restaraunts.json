@@ -2,36 +2,43 @@
     {
         "RestarauntId": "be642f48-9366-40f3-99cc-524bafc4563b",
         "RestarauntName": "Вкусно и точка",
-        "ImageURL": "https://free-png.ru/wp-content/uploads/2022/06/free-png.ru-441-340x340.png"
+        "ImageURL": "https://free-png.ru/wp-content/uploads/2022/06/free-png.ru-441-340x340.png",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510"
     },
     {
         "RestarauntId": "aa8b5fb7-628a-4b54-ab98-f90a835f42cf",
         "RestarauntName": "KFC",
-        "ImageURL": "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png"
+        "ImageURL": "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510"
     },
     {
         "RestarauntId": "3cf69cce-8890-40e4-a8ac-e041dd9b19f3",
         "RestarauntName": "Burger King",
-        "ImageURL": "https://logowik.com/content/uploads/images/burger-king-new-20218389.jpg"
+        "ImageURL": "https://logowik.com/content/uploads/images/burger-king-new-20218389.jpg",
+        "CategoryId": "bf2bdd30-0a53-4c7f-ad27-5436c4526510"
     },
     {
         "RestarauntId": "10c3e90c-cf1f-43d4-976a-4fe8d236123d",
         "RestarauntName": "Якитория",
-        "ImageURL": "https://rfranch.ru/wp-content/uploads/2018/04/BxQaj-gCQAA-Jt5.png"
+        "ImageURL": "https://rfranch.ru/wp-content/uploads/2018/04/BxQaj-gCQAA-Jt5.png",
+        "CategoryId": "f4b6b934-8ee7-42bb-a56e-7d2e1acce72c"
     },
     {
         "RestarauntId": "80574858-a0c2-4ac3-9abb-56c711df1e6f",
         "RestarauntName": "Муракаме",
-        "ImageURL": "https://clarencelee.com/cld-renew/wp-content/uploads/2015/12/marukame_concept.png"
+        "ImageURL": "https://clarencelee.com/cld-renew/wp-content/uploads/2015/12/marukame_concept.png",
+        "CategoryId": "f4b6b934-8ee7-42bb-a56e-7d2e1acce72c"
     },
     {
         "RestarauntId": "666d7eeb-8d20-40cb-80a9-fb6e39f6d11c",
         "RestarauntName": "Додо Пицца",
-        "ImageURL": "https://s3.eu-west-1.amazonaws.com/cofo-uploads-prod/cofo_work_dodo_02_12-6eac3b8d3cc44e61851a2d6511d14c93.png"
+        "ImageURL": "https://s3.eu-west-1.amazonaws.com/cofo-uploads-prod/cofo_work_dodo_02_12-6eac3b8d3cc44e61851a2d6511d14c93.png",
+        "CategoryId": "69ad9553-3e46-4270-9949-d941c377935f"
     },
     {
         "RestarauntId": "338540ed-f104-4a17-9d4d-ee51d467a70a",
         "RestarauntName": "Доминос Пицца",
-        "ImageURL": "https://seeklogo.com/images/D/domino-s-logo-5A72DDBD09-seeklogo.com.png"
+        "ImageURL": "https://seeklogo.com/images/D/domino-s-logo-5A72DDBD09-seeklogo.com.png",
+        "CategoryId": "69ad9553-3e46-4270-9949-d941c377935f"
     }
 ]
