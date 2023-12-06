@@ -14,9 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze.Tests", "EatEaze.Tests\EatEaze.Tests.csproj", "{CCF21419-3F3E-40BC-8395-93E883EC5736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.Services", "EatEazeServices\EatEaze.Services.csproj", "{5F8F0C1A-4657-49DF-9F48-AC16AAF1EA16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze.Services", "EatEazeServices\EatEaze.Services.csproj", "{5F8F0C1A-4657-49DF-9F48-AC16AAF1EA16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze", "EatEaze\EatEaze.csproj", "{30B356F2-B82C-497C-B192-A44F8E093ED2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze", "EatEaze\EatEaze.csproj", "{30B356F2-B82C-497C-B192-A44F8E093ED2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.AdminApplication", "EatEaze.AdminApplication\EatEaze.AdminApplication.csproj", "{F62B2F6B-F3FB-44CF-A036-52C774798338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{30B356F2-B82C-497C-B192-A44F8E093ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B356F2-B82C-497C-B192-A44F8E093ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B356F2-B82C-497C-B192-A44F8E093ED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

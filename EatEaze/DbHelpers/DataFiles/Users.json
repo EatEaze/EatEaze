@@ -1,0 +1,23 @@
+[
+    {
+        "UserId": "d08e7fb0-1d96-4cc8-ac34-edacb445ac2f",
+        "UserRoleId": "6974351f-c752-454e-874d-40665fe2cc32",
+        "Login": "user1",
+        "Password": "password1",
+        "Token": null
+    },
+    {
+        "UserId": "f76ed1f7-72ec-4f0f-abb9-3ed3e438df3a",
+        "UserRoleId": "6974351f-c752-454e-874d-40665fe2cc32",
+        "Login": "user2",
+        "Password": "password2",
+        "Token": null
+    },
+    {
+        "UserId": "e4d35eda-8f8c-4b41-b44c-a6ab8b73f1f9",
+        "UserRoleId": "1d44ed9d-cc99-4e0a-9767-9581ad137cd7",
+        "Login": "admin1",
+        "Password": "password3",
+        "Token": null
+    }
+]

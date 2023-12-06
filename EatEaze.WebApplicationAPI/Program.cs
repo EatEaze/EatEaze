@@ -3,12 +3,10 @@ using EatEazeServices.Implementations;
 using EatEaze.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 using EatEaze.Services.Implementations;
-using EatEaze.DbHelpers;
 using EatEaze.Data.Repositiories.RepositoriesImpls;
-using System.Text.Json.Serialization;
 using EatEaze.Data.Repositiories.RepositoriesInterfaces;
-using AutoMapper;
 using EatEaze.WebApplicationAPI.Mapper;
+using EatEaze.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +31,9 @@ builder.Services.AddScoped<IRestarauntsRepository, RestarauntsRepository>();
 builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IPositionsService, PositionsService>();
 builder.Services.AddScoped<IRestarauntsService, RestarauntsService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
 
 var app = builder.Build();
 

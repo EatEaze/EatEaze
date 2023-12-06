@@ -91,6 +91,34 @@ namespace EatEaze.DbHelpers
                 _eatEazeDataContext.Positions.AddRange(positions);
             }
 
+            if (!_eatEazeDataContext.Roles.Any())
+            {
+                string path = Path.Combine(_path, "UserRoles.json");
+                string json = File.ReadAllText(path);
+                var roles = JsonSerializer.Deserialize<List<UserRole>>(json);
+
+                if (roles == null)
+                {
+                    return 1;
+                }
+
+                _eatEazeDataContext.Roles.AddRange(roles);
+            }
+
+            if (!_eatEazeDataContext.Users.Any())
+            {
+                string path = Path.Combine(_path, "Users.json");
+                string json = File.ReadAllText(path);
+                var users = JsonSerializer.Deserialize<List<User>>(json);
+
+                if (users == null)
+                {
+                    return 1;
+                }
+
+                _eatEazeDataContext.Users.AddRange(users);
+            }
+
             _eatEazeDataContext.SaveChanges();
             return 0;
         }
