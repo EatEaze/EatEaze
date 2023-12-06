@@ -6,6 +6,7 @@ using System.Net;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using EatEaze.Responce;
 
 namespace EatEaze.WebApplicationAPI.Controllers
 {
@@ -23,10 +24,11 @@ namespace EatEaze.WebApplicationAPI.Controllers
         }
 
         [HttpPost, Route("Registration")]
-        public async Task<IActionResult> RegistrateUser([FromBody] User user)
+        public async Task<IActionResult> RegistrateUser([FromBody] UserDTO model)
         {
             try
             {
+                User user = new User() { Login = model.Login, Password = model.Password, Token = null, UserRoleId = model.UserRoleId };
                 user = await _authorizationService.RegistrateUser(user);
                 return Ok(user);
             }

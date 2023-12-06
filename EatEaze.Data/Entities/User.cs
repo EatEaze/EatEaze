@@ -1,7 +1,10 @@
 ﻿#pragma warning disable CS8618
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using Swashbuckle.AspNetCore.Annotations;
+
 
 namespace EatEaze.Data.Entities
 {
@@ -18,9 +21,8 @@ namespace EatEaze.Data.Entities
 
         [Required(AllowEmptyStrings = false)]
         public string Password { get; set; }
-
         public string? Token { get; set; }
-        
+
         [JsonIgnore]
         public virtual UserRole UserRole { get; set; }
         [JsonIgnore]
