@@ -19,7 +19,7 @@ namespace EatEaze.Data.Entities
         [Required(AllowEmptyStrings = false)]
         public string Password { get; set; }
 
-        public string Token { get; set; }
+        public string? Token { get; set; }
         
         [JsonIgnore]
         public virtual UserRole UserRole { get; set; }
