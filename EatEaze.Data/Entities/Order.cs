@@ -14,7 +14,7 @@ namespace EatEaze.Data.Entities
         public Guid UserId { get; set; }
 
         [Required]
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         public DateTime? OrderDate { get; set; }
 

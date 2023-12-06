@@ -4,5 +4,6 @@ namespace EatEazeServices.Interfaces
 {
     public interface IBasketService
     {
+        public Task<Order> GetBasketForUser(Guid userId);
     }
 }
