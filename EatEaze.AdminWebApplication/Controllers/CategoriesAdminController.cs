@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EatEaze.Data.DataContext;
 using EatEaze.Data.Entities;
+using EatEaze.AdminWebApplication.Models;
+using AutoMapper;
 
 namespace EatEaze.AdminWebApplication.Controllers
 {
     public class CategoriesAdminController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly EatEazeDataContext _context;
 
-        public CategoriesAdminController(EatEazeDataContext context)
+        public CategoriesAdminController(EatEazeDataContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
 
@@ -56,12 +60,12 @@ namespace EatEaze.AdminWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName")] CategoriesViewModel category)
         {
             if (ModelState.IsValid)
             {
                 category.CategoryId = Guid.NewGuid();
-                _context.Add(category);
+                _context.Add(_mapper.Map<Category>(category));
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -89,7 +93,7 @@ namespace EatEaze.AdminWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CategoryId,CategoryName")] Category category)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CategoryId,CategoryName")] CategoriesViewModel category)
         {
             if (id != category.CategoryId)
             {
@@ -100,7 +104,7 @@ namespace EatEaze.AdminWebApplication.Controllers
             {
                 try
                 {
-                    _context.Update(category);
+                    _context.Update(_mapper.Map<Category>(category));
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

@@ -1,3 +1,4 @@
+using EatEaze.AdminWebApplication.Mapper;
 using EatEaze.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(typeof(AdminMappingProfile));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<EatEazeDataContext>(options =>
