@@ -1,4 +1,4 @@
-namespace EatEaze.AdminApplication.Models
+namespace EatEaze.AdminWebApplication.Models
 {
     public class ErrorViewModel
     {

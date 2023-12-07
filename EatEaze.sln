@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze.Services", "EatEaze
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EatEaze", "EatEaze\EatEaze.csproj", "{30B356F2-B82C-497C-B192-A44F8E093ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.AdminApplication", "EatEaze.AdminApplication\EatEaze.AdminApplication.csproj", "{F62B2F6B-F3FB-44CF-A036-52C774798338}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatEaze.AdminWebApplication", "EatEaze.AdminWebApplication\EatEaze.AdminWebApplication.csproj", "{2044A0EA-9B8F-465D-846A-9A9D7AE79F3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +46,10 @@ Global
 		{30B356F2-B82C-497C-B192-A44F8E093ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B356F2-B82C-497C-B192-A44F8E093ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B356F2-B82C-497C-B192-A44F8E093ED2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F62B2F6B-F3FB-44CF-A036-52C774798338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2044A0EA-9B8F-465D-846A-9A9D7AE79F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2044A0EA-9B8F-465D-846A-9A9D7AE79F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2044A0EA-9B8F-465D-846A-9A9D7AE79F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2044A0EA-9B8F-465D-846A-9A9D7AE79F3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

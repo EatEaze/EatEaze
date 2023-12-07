@@ -1,13 +1,13 @@
 {
   "profiles": {
-    "EatEaze.AdminApplication": {
+    "EatEaze.AdminWebApplication": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7284;http://localhost:5020"
+      "applicationUrl": "https://localhost:7036;http://localhost:5258"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -20,6 +20,9 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_URLS": "https://+:443;http://+:80"
+      },
       "publishAllPorts": true,
       "useSSL": true
     }
@@ -28,8 +31,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:14635",
-      "sslPort": 44329
+      "applicationUrl": "http://localhost:45420",
+      "sslPort": 44366
     }
   }
 }

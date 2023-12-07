@@ -1,8 +1,8 @@
-﻿using EatEaze.AdminApplication.Models;
+﻿using EatEaze.AdminWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace EatEaze.AdminApplication.Controllers
+namespace EatEaze.AdminWebApplication.Controllers
 {
     public class HomeController : Controller
     {
