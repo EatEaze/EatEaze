@@ -3,6 +3,7 @@ using System;
 using EatEaze.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EatEaze.Data.Migrations
 {
     [DbContext(typeof(EatEazeDataContext))]
-    partial class EatEazeDataContextModelSnapshot : ModelSnapshot
+    [Migration("20231208112600_NullableOrderDate")]
+    partial class NullableOrderDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,6 +63,7 @@ namespace EatEaze.Data.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DeliveryDate")

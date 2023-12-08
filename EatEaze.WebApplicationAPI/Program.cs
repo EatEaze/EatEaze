@@ -28,9 +28,11 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IPositionsRepository, PositionsRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoriesRepository>();
 builder.Services.AddScoped<IRestarauntsRepository, RestarauntsRepository>();
+builder.Services.AddScoped<IOrdersRepository, OrderRepository>();
 builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IPositionsService, PositionsService>();
 builder.Services.AddScoped<IRestarauntsService, RestarauntsService>();
+builder.Services.AddScoped<IBasketService, BasketService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
