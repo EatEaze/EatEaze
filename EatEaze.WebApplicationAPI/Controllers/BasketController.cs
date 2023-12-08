@@ -1,9 +1,11 @@
-﻿using EatEaze.Data.Entities;
+﻿using AutoMapper;
+using EatEaze.Data.Entities;
 using EatEaze.Responce;
 using EatEazeServices.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -14,13 +16,17 @@ namespace EatEaze.WebApplicationAPI.Controllers
     [ApiController]
     public class BasketController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private IConfiguration _configuration;
+        private IPositionsService _positionsService;
         private IBasketService _basketService;
 
-        public BasketController(IBasketService basketService, IConfiguration configuration)
+        public BasketController(IBasketService basketService, IConfiguration configuration, IMapper mapper, IPositionsService positionsService)
         {
             _basketService = basketService;
             _configuration = configuration;
+            _mapper = mapper;
+            _positionsService = positionsService;
         }
 
         [HttpGet, Route("basket/{token}")]
@@ -30,9 +36,23 @@ namespace EatEaze.WebApplicationAPI.Controllers
             var basket = await _basketService.GetBasketForUser(userId);
             if (basket == null) return NotFound();
 
-            var basketDTO = new BasketDTO() { UserId = userId, OrderId = basket.OrderId, PositionsInOrders = basket.PositionsInOrders };
+            BasketDTO basketDTO = _mapper.Map<BasketDTO>(basket);
 
             return Ok(basketDTO);
+        }
+
+        [HttpPost, Route("basket/add/{token}/{modelId}")]
+        public async Task<IActionResult> AddToBasket(Guid modelId, string token)
+        {
+            Guid userId = _getUserIdFromToken(token);
+            var basket = await _basketService.GetBasketForUser(userId);
+            if (basket == null) return NotFound("Can't find basket");
+            
+            Position position = await _positionsService.GetPositionById(modelId);
+
+            await _basketService.AddToBasket(basket, position, 1);
+            return Ok(position);
+
         }
 
         private Guid _getUserIdFromToken(string token)

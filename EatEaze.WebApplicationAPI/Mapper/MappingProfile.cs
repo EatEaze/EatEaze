@@ -8,6 +8,14 @@ namespace EatEaze.WebApplicationAPI.Mapper
     {
         public MappingProfile()
         {
+            CreateMap<Order, BasketDTO>()
+            .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
+            .ForMember(dest => dest.ItemsInBasket, opt => opt.MapFrom(src => src.PositionsInOrders));
+
+            CreateMap<PositionInOrder, ItemInBasketDTO>()
+                .ForMember(dest => dest.Item, opt => opt.MapFrom(src => src.Position))
+                .ForMember(dest => dest.Count, opt => opt.MapFrom(src => src.Count));
+
             CreateMap<Position, FoodCardResponce>()
                 .ForMember(dest => dest.PositionId, opt => opt.MapFrom(src => src.PositionId))
                 .ForMember(dest => dest.PositionName, opt => opt.MapFrom(src => src.PositionName))

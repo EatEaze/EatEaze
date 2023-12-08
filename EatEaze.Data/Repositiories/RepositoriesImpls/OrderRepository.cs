@@ -25,6 +25,14 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             throw new NotImplementedException();
         }
 
+        public async Task AddItemInOrder(Order order, Position position, int count)
+        {
+            var item = new PositionInOrder() { OrderId = order.OrderId, Order = order, Count = count, PositionId = position.PositionId, Position = position };
+            order.PositionsInOrders.Add(item);
+            _eatEazeDataContext.Update(order);
+            await _eatEazeDataContext.SaveChangesAsync();
+        }
+
         public Task DeleteItem(Order item)
         {
             throw new NotImplementedException();
@@ -42,7 +50,7 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
 
         public async Task<Order?> TryGetOrderWithoutOrderDateForUser(Guid userId)
         {
-            var result = await _eatEazeDataContext.Orders.Include(p => p.PositionsInOrders).FirstOrDefaultAsync(u => u.UserId == userId);
+            var result = await _eatEazeDataContext.Orders.Include(p => p.PositionsInOrders).ThenInclude(p => p.Position).FirstOrDefaultAsync(u => u.UserId == userId);
             return result;
         }
 

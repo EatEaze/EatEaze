@@ -1,11 +1,6 @@
 ﻿using EatEaze.Data.Entities;
 using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 using EatEazeServices.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EatEaze.Services.Implementations
 {
@@ -29,6 +24,12 @@ namespace EatEaze.Services.Implementations
             result = await _ordersRepository.TryGetOrderWithoutOrderDateForUser(userId);
             if (result != null) return result;
             else throw new Exception();
+        }
+
+        public async Task AddToBasket(Order order, Position position, int count)
+        { 
+            await _ordersRepository.AddItemInOrder(order, position, count);
+
         }
     }
 }
