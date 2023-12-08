@@ -31,5 +31,16 @@ namespace EatEaze.Services.Implementations
             await _ordersRepository.AddItemInOrder(order, position, count);
 
         }
+
+        public async Task DeleteItemFromBasket(PositionInOrder positionInOrder)
+        {
+            await _ordersRepository.DeletePositionFromOrder(positionInOrder);
+        }
+
+        public async Task RemoveOneItemFromBasket(PositionInOrder positionInOrder)
+        {
+            positionInOrder.Count = positionInOrder.Count - 1;
+            await _ordersRepository.UpdateItemInOrder(positionInOrder);
+        }
     }
 }

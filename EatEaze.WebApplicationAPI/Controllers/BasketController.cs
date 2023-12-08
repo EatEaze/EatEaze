@@ -55,6 +55,37 @@ namespace EatEaze.WebApplicationAPI.Controllers
 
         }
 
+        [HttpPut, Route("basket/decrement/{token}/{modelId}")]
+        public async Task<IActionResult> DecrementCountOfItemInBasket(Guid modelId, string token)
+        {
+            Guid userId = _getUserIdFromToken(token);
+            var basket = await _basketService.GetBasketForUser(userId);
+            if (basket == null) return NotFound("Can't find basket");
+
+            var positionInOrder = basket.PositionsInOrders.FirstOrDefault(m => m.PositionId == modelId);
+
+            if (positionInOrder == null) return NotFound();
+
+            await _basketService.RemoveOneItemFromBasket(positionInOrder);
+            return Ok(positionInOrder);
+        }
+
+
+        [HttpDelete, Route("basket/delete/{token}/{modelId}")]
+        public async Task<IActionResult> DeleteFromBasket(Guid modelId, string token)
+        {
+            Guid userId = _getUserIdFromToken(token);
+            var basket = await _basketService.GetBasketForUser(userId);
+            if (basket == null) return NotFound("Can't find basket");
+
+            var positionInOrder = basket.PositionsInOrders.FirstOrDefault(m => m.PositionId == modelId);
+
+            if (positionInOrder == null) return NotFound();
+
+            await _basketService.DeleteItemFromBasket(positionInOrder);
+            return Ok(positionInOrder);
+        }
+
         private Guid _getUserIdFromToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
