@@ -41,8 +41,8 @@ namespace EatEaze.WebApplicationAPI.Controllers
             return Ok(basketDTO);
         }
 
-        [HttpPost, Route("basket/add/{token}/{modelId}")]
-        public async Task<IActionResult> AddToBasket(Guid modelId, string token)
+        [HttpPost, Route("basket/add/{token}/{modelId}/{count}")]
+        public async Task<IActionResult> AddToBasket(Guid modelId, string token, int count)
         {
             Guid userId = _getUserIdFromToken(token);
             var basket = await _basketService.GetBasketForUser(userId);
@@ -50,7 +50,7 @@ namespace EatEaze.WebApplicationAPI.Controllers
             
             Position position = await _positionsService.GetPositionById(modelId);
 
-            await _basketService.AddToBasket(basket, position, 1);
+            await _basketService.AddToBasket(basket, position, count);
             return Ok(position);
 
         }
