@@ -60,9 +60,9 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             await _eatEazeDataContext.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Order>> GetListOfItem()
+        public async Task<IEnumerable<Order>> GetListOfItem()
         {
-            throw new NotImplementedException();
+           return await _eatEazeDataContext.Orders.Include(o => o.PositionsInOrders).ThenInclude(p => p.Position).ToListAsync();
         }
 
         public bool IsPositionExistInOrder(Order order, Guid positionId)
@@ -73,7 +73,10 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
 
         public async Task<Order?> TryGetOrderWithoutOrderDateForUser(Guid userId)
         {
-            var result = await _eatEazeDataContext.Orders.Include(p => p.PositionsInOrders).ThenInclude(p => p.Position).FirstOrDefaultAsync(u => u.UserId == userId);
+            var result = await _eatEazeDataContext.Orders
+                .Include(p => p.PositionsInOrders)
+                .ThenInclude(p => p.Position)
+                .FirstOrDefaultAsync(u => u.UserId == userId && u.OrderDate == null);
             return result;
         }
 
@@ -83,9 +86,10 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             await _eatEazeDataContext.SaveChangesAsync();
         }
 
-        public Task UpdateItem(Order item)
+        public async Task UpdateItem(Order item)
         {
-            throw new NotImplementedException();
+            _eatEazeDataContext.Update(item);
+            await _eatEazeDataContext.SaveChangesAsync();
         }
     }
 }

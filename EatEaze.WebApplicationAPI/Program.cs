@@ -33,6 +33,7 @@ builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IPositionsService, PositionsService>();
 builder.Services.AddScoped<IRestarauntsService, RestarauntsService>();
 builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddScoped<IOrdersService, OrdersService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();

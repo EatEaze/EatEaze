@@ -6,6 +6,6 @@ namespace EatEaze.Data.Repositiories.RepositoriesInterfaces
     {
         Task<IEnumerable<User>> GetUsersByRole(Guid roleId);
 
-        Task<User> GetUserByLoginAndPassword(string login, string password);
+        Task<User?> TryGetUserByLoginAndPassword(string login, string password);
     }
 }

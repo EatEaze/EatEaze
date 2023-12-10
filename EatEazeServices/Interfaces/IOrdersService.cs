@@ -4,7 +4,8 @@ namespace EatEazeServices.Interfaces
 {
     public interface IOrdersService
     {
-        public IEnumerable<Order> GetOrders();
-        public IEnumerable<Order> GetOrders(Guid userId);
+        public Task<IEnumerable<Order>> GetOrders();
+        public Task<IEnumerable<Order>> GetOrders(Guid userId);
+        public Task SetOrderFromBasket(Order basket, DateTime date, string address);
     }
 }

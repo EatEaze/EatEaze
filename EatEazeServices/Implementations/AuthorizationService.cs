@@ -19,7 +19,7 @@ namespace EatEaze.Services.Implementations
         public async Task<User?> TryAuthorizeUser(string login, string password)
         {
             // string hashPassword = MD5Hash.CalculateMD5Hash(password);
-            var result = await _userRepository.GetUserByLoginAndPassword(login, password);
+            var result = await _userRepository.TryGetUserByLoginAndPassword(login, password);
             return result;
         }
 

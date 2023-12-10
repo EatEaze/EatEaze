@@ -43,11 +43,9 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             return await _eatEazeDataContext.Users.ToListAsync();
         }
 
-        public async Task<User> GetUserByLoginAndPassword(string login, string password)
+        public async Task<User?> TryGetUserByLoginAndPassword(string login, string password)
         {
             var result = await _eatEazeDataContext.Users.FirstOrDefaultAsync(u => u.Login == login && u.Password == password);
-
-            if (result == null) throw new Exception();
             return result;
 
 
