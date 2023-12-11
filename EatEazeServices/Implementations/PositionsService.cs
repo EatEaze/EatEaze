@@ -12,7 +12,7 @@ namespace EatEazeServices.Implementations
 
         public PositionsService(IPositionsRepository positionsRepository)
         {
-            _positionsRepository = positionsRepository; 
+            _positionsRepository = positionsRepository;
         }
 
         public async Task AddPosition(Position position)
@@ -31,6 +31,12 @@ namespace EatEazeServices.Implementations
         public async Task<IEnumerable<Position>> GetPositions()
         {
             var positions = await _positionsRepository.GetListOfItem();
+            return positions;
+        }
+
+        public async Task<IEnumerable<Position>> GetPositionsFromRestarauntsInCity(City city)
+        {
+            var positions = await _positionsRepository.GetPositionsFromRestarauntsInCity(city);
             return positions;
         }
 

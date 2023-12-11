@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EatEaze.Data.Entities;
+using EatEaze.Data.Repositiories.RepositoriesInterfaces;
 using EatEaze.Responce;
 using EatEazeServices.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -14,11 +15,13 @@ namespace EatEaze.WebApplicationAPI.Controllers
     {
         private readonly IMapper _mapper;
         private IPositionsService _positionsService;
+        private ICitiesRepository _cityRepository;
 
-        public PositionsController(IMapper mapper, IPositionsService positionsService)
+        public PositionsController(IMapper mapper, IPositionsService positionsService, ICitiesRepository citiesRepository)
         {
             _mapper = mapper;
             _positionsService = positionsService;
+            _cityRepository = citiesRepository;
         }
 
 
@@ -35,6 +38,22 @@ namespace EatEaze.WebApplicationAPI.Controllers
             //_mapper.Map<List<FoodCardResponce>>(positions);
 
             return Ok(_mapper.Map<List<FoodCardResponce>>(positions));
+        }
+
+        [HttpGet, Route("positions/city/{cityName}")]
+        public async Task<IActionResult> GetPositionsFromRestarauntsInCity(string cityName)
+        {
+            try
+            {
+                var city = await _cityRepository.GetCityByName(cityName);
+                var positions = await _positionsService.GetPositionsFromRestarauntsInCity(city);
+                if (positions == null) return NotFound();
+                return Ok(_mapper.Map<List<FoodCardResponce>>(positions));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

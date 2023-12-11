@@ -77,6 +77,19 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
             await _eatEazeDataContext.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Position>> GetPositionsFromRestarauntsInCity(City city)
+        {
+            var positionsInCity = from restarauntInCity in _eatEazeDataContext.RestarauntsInCities
+                                  where restarauntInCity.CityId == city.CityId
+                                  join restaraunt in _eatEazeDataContext.Restaraunts on restarauntInCity.RestarauntId equals restaraunt.RestarauntId
+                                  join position in _eatEazeDataContext.Positions on restaraunt.RestarauntId equals position.RestarauntId
+                                  select position;
+
+            positionsInCity = positionsInCity.Include(c => c.Category).Include(r => r.Restaraunt);
+
+            return await positionsInCity.ToListAsync();
+        }
+
         public async Task DeleteItem(IEnumerable<Position> items)
         {
             _eatEazeDataContext.Positions.RemoveRange(items);
@@ -85,7 +98,11 @@ namespace EatEaze.Data.Repositiories.RepositoriesImpls
 
         public async Task<IEnumerable<Position>> GetListOfItem()
         {
-            return await _eatEazeDataContext.Positions.Include(c => c.Category).Include(r => r.Restaraunt).ToListAsync();
+            return await _eatEazeDataContext.Positions
+                .Include(c => c.Category)
+                .Include(r => r.Restaraunt)
+                .ThenInclude(c => c.RestarauntsInCities)
+                .ToListAsync();
         }
 
         public async Task UpdateItem(Position item)

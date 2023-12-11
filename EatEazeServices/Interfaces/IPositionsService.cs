@@ -9,6 +9,7 @@ namespace EatEazeServices.Interfaces
         public Task<IEnumerable<Position>> GetPositionsByRestaurant(Guid restaurantId);
         public Task<IEnumerable<Position>> GetPositionsByCategory(Guid categoryId);
         public Task<IEnumerable<Position>> GetPositions(Guid restaurantId, Guid categoryId);
+        public Task<IEnumerable<Position>> GetPositionsFromRestarauntsInCity(City city);
         public Task<Position> GetPositionById(Guid positionId);
         public Task AddPosition(Position position);
         public Task UpdatePosition(Position position);

@@ -9,6 +9,7 @@ namespace EatEaze.Data.Repositiories.RepositoriesInterfaces
         Task<IEnumerable<Position>> GetPositionsByRestaurantId(Guid restaurantId);
         Task<IEnumerable<Position>> GetPositionsByCategoryId(Guid categoryId);
         Task<IEnumerable<Position>> GetPositionsByCategoryIdAndRestaurantId(Guid categoryId, Guid restaurantId);
+        Task<IEnumerable<Position>> GetPositionsFromRestarauntsInCity(City city)
 
     }
 }
