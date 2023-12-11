@@ -15,3 +15,52 @@ services:
             POSTGRES_PASSWORD: Ml37RemA7hEGjI
         networks:
             - eat-eaze-dev
+
+    webapi:
+        image: eateaze/api:1.0 
+        container_name: api
+        build: 
+            context: .
+            dockerfile: EatEaze.WebApplicationAPI/Dockerfile
+        ports:
+            - "7242:80"
+        depends_on:
+            - postgres
+        networks:
+            - eat-eaze-dev
+        environment:
+            CONN_STRING: host=postgres;port=5432;database=eateazedatabase;username=eateaze-app;password=Ml37RemA7hEGjI
+            ASPNETCORE_ENVIRONMENT: Development
+
+    adminpanel:
+        image: eateaze/adminpanel:1.0
+        container_name: adminpanel
+        build: 
+            context: .
+            dockerfile: EatEaze.AdminWebApplication/Dockerfile
+        ports:
+            - "7023:80"
+        depends_on:
+            - postgres
+        networks:
+            - eat-eaze-dev
+        environment:
+            CONN_STRING: host=postgres;port=5432;database=eateazedatabase;username=eateaze-app;password=Ml37RemA7hEGjI
+            ASPNETCORE_ENVIRONMENT: Development
+
+    vueapp:
+        image: client:latest  
+        container_name: vueapp
+        build:
+            context: .
+            dockerfile: VueApp/Dockerfile 
+        ports:
+            - "8080:8080"  
+        depends_on:
+            - webapi
+        networks:
+            - eat-eaze-dev
+        environment:
+            VUE_APP_API_URL: http://webapi:80 
+
+                              
